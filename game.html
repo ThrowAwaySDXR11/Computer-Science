@@ -34,11 +34,9 @@
       border: 3px solid #FFD700;
     }
 
-    iframe {
+    #game {
       width: 100%;
       height: 600px;
-      border: none;
-      border-radius: 10px;
     }
 
     .back-button {
@@ -64,23 +62,27 @@
   </header>
 
   <div class="game-container">
-    <iframe id="gameFrame" src="" allowfullscreen></iframe>
-    <br>
+    <div id="game"></div>
     <a class="back-button" href="index.html">Back to Game List</a>
   </div>
+
+  <!-- Load Ruffle -->
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
   <script>
     // Grab game file from URL
     const urlParams = new URLSearchParams(window.location.search);
     const file = urlParams.get('file');
 
-    // Load the game SWF using Ruffle
     if (file) {
-      document.getElementById('gameFrame').src = `https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle/embed.html#/${file}`;
       document.title = file.split('.')[0] + " - Now Playing";
+      const ruffle = window.RufflePlayer.newest();
+      const container = document.getElementById("game");
+      const player = ruffle.createPlayer();
+      container.appendChild(player);
+      player.load(file); // Load your SWF file from local repo
     } else {
-      document.getElementById('gameFrame').style.display = 'none';
-      document.querySelector('.game-container').innerHTML += "<p>Game file not specified.</p>";
+      document.getElementById('game').innerHTML = "<p>Game file not specified.</p>";
     }
   </script>
 
