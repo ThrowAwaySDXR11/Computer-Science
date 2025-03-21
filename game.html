@@ -3,96 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Now Loading...</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Cactus McCoy 2 - Computer Science Test Site</title>
   <style>
     body {
-      font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(135deg, #4b6cb7, #182848);
+      background-color: #1a1a1a;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      text-align: center;
       margin: 0;
       padding: 0;
-      text-align: center;
-      color: #fff;
     }
 
     header {
-      background-color: #000;
-      color: #FFD700;
-      padding: 20px;
-      border-bottom: 4px solid #FFD700;
-      font-size: 18px;
+      background-color: #111;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 2rem;
     }
 
     .game-container {
-      margin: 30px auto;
-      padding: 30px;
-      background-color: #222;
-      width: 95%;
-      max-width: 1200px;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-      border: 3px solid #FFD700;
-    }
-
-    #game {
-      width: 100%;
-      height: 80vh; /* 80% of screen height */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #game ruffle-player {
-      width: 100%;
-      height: 100%;
-    }
-
-    .back-button {
+      background-color: #000;
       display: inline-block;
+      padding: 10px;
+      border: 2px solid #00ff00;
       margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #FFD700;
-      color: #000;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 12px;
     }
 
-    .back-button:hover {
-      background-color: #fff700;
+    footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #111;
     }
+
+    .back-link {
+      color: #00ff00;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
   </style>
 </head>
 <body>
-
   <header>
-    NOW PLAYING
+    <h1>Computer Science Test Site</h1>
   </header>
 
-  <div class="game-container">
-    <div id="game"></div>
-    <a class="back-button" href="index.html">Back to Game List</a>
-  </div>
+  <main>
+    <h2>Cactus McCoy 2</h2>
+    <div class="game-container">
+      <ruffle-player
+        src="https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/cactusmccoy2.swf"
+        style="width: 960px; height: 600px;"
+      ></ruffle-player>
+    </div>
+    <br />
+    <a class="back-link" href="index.html">&larr; Back to Main Page</a>
+  </main>
 
-  <!-- Load Ruffle -->
+  <footer>
+    <p>&copy; 2025 Computer Science Test Site</p>
+  </footer>
+
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-
-  <script>
-    // Grab game file from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const file = urlParams.get('file');
-
-    if (file) {
-      document.title = file.split('.')[0] + " - Now Playing";
-      const ruffle = window.RufflePlayer.newest();
-      const container = document.getElementById("game");
-      const player = ruffle.createPlayer();
-      container.appendChild(player);
-      player.load(file); // Load SWF file
-    } else {
-      document.getElementById('game').innerHTML = "<p>Game file not specified.</p>";
-    }
-  </script>
-
 </body>
 </html>
