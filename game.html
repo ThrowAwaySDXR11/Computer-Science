@@ -1,17 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Playing Flash Game...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module Loader – Computer Science Test Site</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #004080;
+      color: #fff;
+      padding: 15px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav {
+      background-color: #e6e6e6;
+      padding: 10px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #004080;
+      font-weight: bold;
+    }
+    .game-container {
+      margin: 30px auto;
+      max-width: 900px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #e6e6e6;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+  </style>
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
+
 <body>
-  <div id="flash-container">
-    <embed width="800" height="600">
+
+  <header>
+    <h1>Module Loader</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Modules</a>
+    <a href="#">About</a>
+  </nav>
+
+  <div class="game-container">
+    <p>Loading Module...</p>
+    <div id="flash-game">
+      <!-- Ruffle Player will appear here -->
+    </div>
   </div>
+
+  <footer>
+    &copy; 2025 Computer Science Department - Test Site
+  </footer>
+
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get('file');
-    document.querySelector('embed').src = `games/${file}`;
+    // Get SWF file name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const file = urlParams.get('file');
+
+    if (file) {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("flash-game");
+      container.appendChild(player);
+      player.load(`roms/${file}`);
+    } else {
+      document.getElementById("flash-game").innerHTML = "<p>Error: No module specified.</p>";
+    }
   </script>
+
 </body>
 </html>
