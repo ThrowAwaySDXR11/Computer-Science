@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Playing Flash Game...</title>
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+<body>
+  <div id="flash-container">
+    <embed width="800" height="600">
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+    document.querySelector('embed').src = `games/${file}`;
+  </script>
+</body>
+</html>
