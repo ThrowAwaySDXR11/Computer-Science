@@ -59,10 +59,7 @@
   <main>
     <h2>Cactus McCoy 2</h2>
     <div class="game-container">
-      <ruffle-player
-        src="https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/cactusmccoy2.swf"
-        style="width: 960px; height: 600px;"
-      ></ruffle-player>
+      <div id="game" style="width: 960px; height: 600px;"></div>
     </div>
     <br />
     <a class="back-link" href="index.html">&larr; Back to Main Page</a>
@@ -72,6 +69,17 @@
     <p>&copy; 2025 Computer Science Test Site</p>
   </footer>
 
+  <!-- Load Ruffle -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("game");
+      container.appendChild(player);
+      player.load("https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/cactusmccoy2.swf");
+    });
+  </script>
+
 </body>
 </html>
