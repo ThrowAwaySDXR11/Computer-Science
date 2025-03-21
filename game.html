@@ -3,90 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Module Loader – Computer Science Test Site</title>
+  <title>Now Loading...</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(135deg, #4b6cb7, #182848);
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
       text-align: center;
-    }
-    header {
-      background-color: #004080;
       color: #fff;
-      padding: 15px;
     }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
+
+    header {
+      background-color: #000;
+      color: #FFD700;
+      padding: 20px;
+      border-bottom: 4px solid #FFD700;
+      font-size: 18px;
     }
-    nav {
-      background-color: #e6e6e6;
-      padding: 10px;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #004080;
-      font-weight: bold;
-    }
+
     .game-container {
       margin: 30px auto;
-      max-width: 900px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       padding: 20px;
+      background-color: #222;
+      width: 90%;
+      max-width: 960px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+      border: 3px solid #FFD700;
     }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #e6e6e6;
-      margin-top: 30px;
-      font-size: 13px;
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #FFD700;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .back-button:hover {
+      background-color: #fff700;
     }
   </style>
-  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
-
 <body>
 
   <header>
-    <h1>Module Loader</h1>
+    NOW PLAYING
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#">Modules</a>
-    <a href="#">About</a>
-  </nav>
-
   <div class="game-container">
-    <p>Loading Module...</p>
-    <div id="flash-game">
-      <!-- Ruffle Player will appear here -->
-    </div>
+    <iframe id="gameFrame" src="" allowfullscreen></iframe>
+    <br>
+    <a class="back-button" href="index.html">Back to Game List</a>
   </div>
 
-  <footer>
-    &copy; 2025 Computer Science Department - Test Site
-  </footer>
-
   <script>
-    // Get SWF file name from URL parameter
+    // Grab game file from URL
     const urlParams = new URLSearchParams(window.location.search);
     const file = urlParams.get('file');
 
+    // Load the game SWF using Ruffle
     if (file) {
-      const ruffle = window.RufflePlayer.newest();
-      const player = ruffle.createPlayer();
-      const container = document.getElementById("flash-game");
-      container.appendChild(player);
-      player.load(`roms/${file}`);
+      document.getElementById('gameFrame').src = `https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle/embed.html#/${file}`;
+      document.title = file.split('.')[0] + " - Now Playing";
     } else {
-      document.getElementById("flash-game").innerHTML = "<p>Error: No module specified.</p>";
+      document.getElementById('gameFrame').style.display = 'none';
+      document.querySelector('.game-container').innerHTML += "<p>Game file not specified.</p>";
     }
   </script>
 
