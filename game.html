@@ -1,96 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Now Loading...</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Flash Game</title>
   <style>
     body {
-      font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(135deg, #4b6cb7, #182848);
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 0;
       padding: 0;
-      text-align: center;
-      color: #fff;
     }
-
-    header {
+    h1 {
+      margin: 20px;
+      font-size: 2em;
+    }
+    #game-container {
+      width: 960px;
+      height: 600px;
       background-color: #000;
-      color: #FFD700;
-      padding: 20px;
-      border-bottom: 4px solid #FFD700;
-      font-size: 18px;
-    }
-
-    .game-container {
-      margin: 30px auto;
-      padding: 30px;
-      background-color: #222;
-      width: 95%;
-      max-width: 1200px;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-      border: 3px solid #FFD700;
-    }
-
-    #game {
-      width: 100%;
-      height: 80vh; /* 80% of screen height */
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      border: 4px solid #00ff00;
+      margin-bottom: 20px;
     }
-
-    #game ruffle-player {
-      width: 100%;
-      height: 100%;
-    }
-
-    .back-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #FFD700;
-      color: #000;
+    a {
+      color: #00ff00;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 12px;
-    }
-
-    .back-button:hover {
-      background-color: #fff700;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    NOW PLAYING
-  </header>
-
-  <div class="game-container">
-    <div id="game"></div>
-    <a class="back-button" href="index.html">Back to Game List</a>
+  <h1>Retro Flash Game Player</h1>
+  <div id="game-container">
+    <p>Loading game...</p>
   </div>
 
-  <!-- Load Ruffle -->
+  <a href="index.html">⬅️ Back to Home</a>
+
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-
   <script>
-    // Grab game file from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const file = urlParams.get('file');
-
-    if (file) {
-      document.title = file.split('.')[0] + " - Now Playing";
+    const swfUrl = urlParams.get('file');
+    if (swfUrl) {
       const ruffle = window.RufflePlayer.newest();
-      const container = document.getElementById("game");
       const player = ruffle.createPlayer();
-      container.appendChild(player);
-      player.load(file); // Load SWF file
+      document.getElementById("game-container").innerHTML = "";
+      document.getElementById("game-container").appendChild(player);
+      player.style.width = "100%";
+      player.style.height = "100%";
+      player.load(swfUrl);
     } else {
-      document.getElementById('game').innerHTML = "<p>Game file not specified.</p>";
+      document.getElementById("game-container").innerHTML = "<p>No game file specified!</p>";
     }
   </script>
 
