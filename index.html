@@ -1,13 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Flash Game Vault</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computer Science Test Site</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #004080;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    nav {
+      background-color: #e6e6e6;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #004080;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .module {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .module:hover {
+      transform: scale(1.03);
+    }
+    .module img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .module a {
+      text-decoration: none;
+      color: #004080;
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #e6e6e6;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Flash Game Vault</h1>
-  <ul>
-    <li><a href="game.html?file=BloonsTowerDefense.swf">Bloons Tower Defense</a></li>
-    <li><a href="game.html?file=Snake.swf">Snake</a></li>
-  </ul>
+
+  <header>
+    <h1>Computer Science Test Site</h1>
+    <p>Interactive Web Modules – Under Development</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Modules</a>
+    <a href="#">About</a>
+  </nav>
+
+  <div class="container">
+    <div class="module">
+      <img src="https://via.placeholder.com/200x120.png?text=Module+1" alt="Module 1">
+      <div>Module 1: Logic Simulation</div>
+      <a href="game.html?file=cactusmccoy2.swf">Launch</a>
+    </div>
+    <div class="module">
+      <img src="https://via.placeholder.com/200x120.png?text=Module+2" alt="Module 2">
+      <div>Module 2: Algorithm Visualizer</div>
+      <a href="game.html?file=someothergame.swf">Launch</a>
+    </div>
+    <div class="module">
+      <img src="https://via.placeholder.com/200x120.png?text=Module+3" alt="Module 3">
+      <div>Module 3: Data Structure Tester</div>
+      <a href="game.html?file=thirdgame.swf">Launch</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Computer Science Department - Test Site
+  </footer>
+
 </body>
 </html>
