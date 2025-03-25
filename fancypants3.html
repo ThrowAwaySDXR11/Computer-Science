@@ -3,76 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fancy Pants World 3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Fancy Pants World 3 - Computer Science Test Site</title>
   <style>
     body {
-      font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(135deg, #4b6cb7, #182848);
+      background-color: #1a1a1a;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      text-align: center;
       margin: 0;
       padding: 0;
-      text-align: center;
-      color: #fff;
     }
 
     header {
-      background-color: #000;
-      color: #FFD700;
-      padding: 25px;
-      font-size: 20px;
-      border-bottom: 4px solid #FFD700;
+      background-color: #111;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 2rem;
     }
 
     .game-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 80vh;
-      overflow: hidden;
-    }
-
-    #game-container {
-      width: 100%;
-      height: 100%;
+      background-color: #000;
+      display: inline-block;
+      padding: 10px;
+      border: 2px solid #00ff00;
+      margin-top: 20px;
     }
 
     footer {
-      background-color: #000;
-      color: #FFD700;
-      padding: 10px;
-      font-size: 16px;
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #111;
     }
+
+    .back-link {
+      color: #00ff00;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
   </style>
 </head>
 <body>
-
   <header>
-    Fancy Pants World 3
+    <h1>Computer Science Test Site</h1>
   </header>
 
-  <section class="game-container">
-    <div id="game-container"></div>
-  </section>
+  <main>
+    <h2>Fancy Pants World 3</h2>
+    <div class="game-container">
+      <div id="game" style="width: 960px; height: 600px;"></div>
+    </div>
+    <br />
+    <a class="back-link" href="index.html">&larr; Back to Main Page</a>
+  </main>
 
   <footer>
-    Powered by Ruffle Player | <a href="index.html" style="color: #FFD700;">Back to homepage</a>
+    <p>&copy; 2025 Computer Science Test Site</p>
   </footer>
 
-  <!-- Add Ruffle.js -->
-  <script src="https://unpkg.com/ruffle.js"></script>
+  <!-- Load Ruffle -->
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   <script>
-    // Ensure Ruffle.js is initialized
-    window.addEventListener('load', () => {
-      const ruffle = RufflePlayer.newest();
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
       const player = ruffle.createPlayer();
-
-      // Load the SWF file
-      player.load("games/FancyPantsWorld3.swf");
-
-      // Append the player to the container
-      document.getElementById("game-container").appendChild(player);
+      const container = document.getElementById("game");
+      container.appendChild(player);
+      player.load("./games/FancyPantsWorld3.swf"); // Correct path to the SWF file
     });
   </script>
-
 </body>
 </html>
