@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fancy Pants World 1 - Computer Science Test Site</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #111;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .game-container {
+      background-color: #000;
+      display: inline-block;
+      padding: 10px;
+      border: 2px solid #00ff00;
+      margin-top: 20px;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #111;
+    }
+
+    .back-link {
+      color: #00ff00;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Computer Science Test Site</h1>
+  </header>
+
+  <main>
+    <h2>Fancy Pants World 1</h2>
+    <div class="game-container">
+      <div id="game" style="width: 960px; height: 600px;"></div>
+    </div>
+    <br />
+    <a class="back-link" href="index.html">&larr; Back to Main Page</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Computer Science Test Site</p>
+  </footer>
+
+  <!-- Load Ruffle -->
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("game");
+      container.appendChild(player);
+      player.load("./games/FancyPantsWorld1.swf"); // Load Fancy Pants World 3 SWF file
+    });
+  </script>
+
+</body>
+</html>
