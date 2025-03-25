@@ -58,21 +58,20 @@
     Powered by Ruffle Player | <a href="index.html" style="color: #FFD700;">Back to homepage</a>
   </footer>
 
+  <!-- Add Ruffle.js -->
   <script src="https://unpkg.com/ruffle.js"></script>
   <script>
-    // Create a new Ruffle player instance
-    const ruffle = RufflePlayer.newest();
+    // Ensure Ruffle.js is initialized
+    window.addEventListener('load', () => {
+      const ruffle = RufflePlayer.newest();
+      const player = ruffle.createPlayer();
 
-    // Create the player and attach to the game container
-    const player = ruffle.createPlayer({
-      debug: true, // Enable debugging to get detailed logs
+      // Load the SWF file
+      player.load("games/FancyPantsWorld3.swf");
+
+      // Append the player to the container
+      document.getElementById("game-container").appendChild(player);
     });
-
-    // Load the Fancy Pants World 3 SWF file
-    player.load("games/FancyPantsWorld3.swf");
-
-    // Append the player to the game container
-    document.getElementById("game-container").appendChild(player);
   </script>
 
 </body>
