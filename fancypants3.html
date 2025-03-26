@@ -70,15 +70,15 @@
   </footer>
 
   <!-- Load Ruffle -->
-  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const ruffle = window.RufflePlayer.newest();
-      const player = ruffle.createPlayer();
-      const container = document.getElementById("game");
-      container.appendChild(player);
-      player.load("./games/FancyPantsWorld3.swf"); // Correct path to the SWF file
-    });
-  </script>
+ <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    const container = document.getElementById("game");
+    container.appendChild(player);
+    player.load("https://raw.githubusercontent.com/YourUsername/YourRepoName/main/games/FancyPantsWorld3.swf"); // Correct path to the SWF file
+  });
+</script>
 </body>
 </html>
