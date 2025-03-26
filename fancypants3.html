@@ -70,15 +70,17 @@
   </footer>
 
   <!-- Load Ruffle -->
- <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const ruffle = window.RufflePlayer.newest();
-    const player = ruffle.createPlayer();
-    const container = document.getElementById("game");
-    container.appendChild(player);
-  player.load("https://throwawaysdxr11.github.io/games/FancyPantsWorld3.swf");
-  });
-</script>
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("game");
+      container.appendChild(player);
+
+      // Update this URL to the raw URL of your SWF file in GitHub LFS
+      player.load("https://github.com/ThrowAwaySDXR11/Computer-Science/raw/main/games/FancyPantsWorld3.swf");
+    });
+  </script>
 </body>
 </html>
