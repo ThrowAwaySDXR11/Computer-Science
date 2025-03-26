@@ -71,16 +71,17 @@
 
   <!-- Load Ruffle -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const ruffle = window.RufflePlayer.newest();
-      const player = ruffle.createPlayer();
-      const container = document.getElementById("game");
-      container.appendChild(player);
+ <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    const container = document.getElementById("game");
+    container.appendChild(player);
 
-      // Update this URL to the raw URL of your SWF file in GitHub LFS
-    player.load("https://corsproxy.io/?https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/FancyPantsWorld3.swf");
-    });
-  </script>
+    // Load SWF from Google Drive
+    player.load("https://drive.google.com/uc?export=download&id=1ozozjexMEnfaRxvETUZltvFPp-rEtgf9");
+  });
+</script>
+
 </body>
 </html>
