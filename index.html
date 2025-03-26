@@ -46,12 +46,12 @@
       box-shadow: 0 12px 20px rgba(255, 215, 0, 0.7);
     }
 
-    .module img {
-
-       width: 30%;
-      height: 100px; /* Set a fixed height for consistency */
-      object-fit: cover; /* Ensures the image fills the space while maintaining aspect ratio */
-    }
+   .module img {
+  width: auto; /* Allow image width to adjust based on the size */
+  height: 120px; /* Set a consistent height for all images */
+  max-width: 100%; /* Make sure images do not overflow */
+  object-fit: cover; /* Ensures images fill their space without distorting */
+}
 
     .module div {
       padding: 15px;
