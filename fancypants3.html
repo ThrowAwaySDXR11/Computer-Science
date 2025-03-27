@@ -78,25 +78,15 @@
       const container = document.getElementById("game");
       container.appendChild(player);
 
-      // URL for SWF file
+      // Use a different CORS proxy URL
       const swfURL = "https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/FancyPantsWorld3.swf";
-      
-      // Use a new CORS proxy (change to a different one if necessary)
-      const proxyURL = "https://cors-anywhere.herokuapp.com/" + encodeURIComponent(swfURL);
-      
-      fetch(proxyURL)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log("SWF content fetched: ", data.contents); // Log the fetched SWF content
+      const proxyURL = "https://api.allorigins.win/get?url=" + encodeURIComponent(swfURL);
 
-          // Check if SWF content is empty
+      fetch(proxyURL)
+        .then(response => response.json())
+        .then(data => {
           if (data.contents) {
-            player.load(data.contents); // Load the SWF file from the proxy response
+            player.load(data.contents);  // Load the SWF file from the proxy response
           } else {
             console.error('No content found for the SWF file.');
           }
