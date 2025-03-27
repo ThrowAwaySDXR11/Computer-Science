@@ -71,17 +71,25 @@
 
   <!-- Load Ruffle -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
- <script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const ruffle = window.RufflePlayer.newest();
-    const player = ruffle.createPlayer();
-    const container = document.getElementById("game");
-    container.appendChild(player);
 
-    // Load SWF from Google Drive
-    player.load("https://drive.google.com/uc?export=download&id=1ozozjexMEnfaRxvETUZltvFPp-rEtgf9");
-  });
-</script>
+  <!-- Custom script to load SWF with CORS proxy -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("game");
+      container.appendChild(player);
 
+      // Use a CORS proxy for bypassing CORS
+      const swfURL = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/FancyPantsWorld3.swf");
+
+      fetch(swfURL)
+        .then(response => response.json())
+        .then(data => {
+          player.load(data.contents);  // Load the SWF file from the proxy response
+        })
+        .catch(error => console.error('Error loading SWF:', error));
+    });
+  </script>
 </body>
 </html>
