@@ -78,22 +78,8 @@
       const container = document.getElementById("game");
       container.appendChild(player);
 
-      // Use a different CORS proxy URL
-      const swfURL = "https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/FancyPantsWorld3.swf";
-      const proxyURL = "https://api.allorigins.win/get?url=" + encodeURIComponent(swfURL);
-
-      fetch(proxyURL)
-        .then(response => response.json())
-        .then(data => {
-          if (data.contents) {
-            player.load(data.contents);  // Load the SWF file from the proxy response
-          } else {
-            console.error('No content found for the SWF file.');
-          }
-        })
-        .catch(error => {
-          console.error('Error loading SWF:', error);
-        });
+      // Directly load the SWF file from GitHub Pages
+      player.load("https://username.github.io/repository-name/games/FancyPantsWorld3.swf");
     });
   </script>
 </body>
