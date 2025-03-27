@@ -92,8 +92,14 @@
           return response.json();
         })
         .then(data => {
-          // Load the SWF file from the proxy response
-          player.load(data.contents);
+          console.log("SWF content fetched: ", data.contents); // Log the fetched SWF content
+
+          // Check if SWF content is empty
+          if (data.contents) {
+            player.load(data.contents); // Load the SWF file from the proxy response
+          } else {
+            console.error('No content found for the SWF file.');
+          }
         })
         .catch(error => {
           console.error('Error loading SWF:', error);
