@@ -81,8 +81,8 @@
       // URL for SWF file
       const swfURL = "https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/FancyPantsWorld3.swf";
       
-      // Use a CORS proxy for bypassing CORS
-      const proxyURL = "https://api.allorigins.win/get?url=" + encodeURIComponent(swfURL);
+      // Use a new CORS proxy (change to a different one if necessary)
+      const proxyURL = "https://cors-anywhere.herokuapp.com/" + encodeURIComponent(swfURL);
       
       fetch(proxyURL)
         .then(response => {
