@@ -71,8 +71,6 @@
 
   <!-- Load Ruffle -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-
-  <!-- Custom script to load SWF with CORS proxy -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       const ruffle = window.RufflePlayer.newest();
@@ -80,15 +78,26 @@
       const container = document.getElementById("game");
       container.appendChild(player);
 
+      // URL for SWF file
+      const swfURL = "https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/FancyPantsWorld3.swf";
+      
       // Use a CORS proxy for bypassing CORS
-      const swfURL = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://github.com/ThrowAwaySDXR11/Computer-Science/raw/refs/heads/main/games/FancyPantsWorld3.swf");
-
-      fetch(swfURL)
-        .then(response => response.json())
-        .then(data => {
-          player.load(data.contents);  // Load the SWF file from the proxy response
+      const proxyURL = "https://api.allorigins.win/get?url=" + encodeURIComponent(swfURL);
+      
+      fetch(proxyURL)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
         })
-        .catch(error => console.error('Error loading SWF:', error));
+        .then(data => {
+          // Load the SWF file from the proxy response
+          player.load(data.contents);
+        })
+        .catch(error => {
+          console.error('Error loading SWF:', error);
+        });
     });
   </script>
 </body>
