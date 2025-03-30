@@ -36,24 +36,6 @@
       margin-top: 20px;
     }
 
-    .map-buttons {
-      margin: 20px 0;
-    }
-
-    .map-buttons button {
-      background-color: #00ff00;
-      color: #000;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      margin: 5px;
-      transition: 0.3s;
-    }
-
-    .map-buttons button:hover {
-      background-color: #008000;
-    }
-
     footer {
       margin-top: 2rem;
       padding: 1rem;
@@ -79,15 +61,6 @@
       <div id="game" style="width: 960px; height: 600px;"></div>
     </div>
 
-    <div class="map-buttons">
-      <button onclick="loadMap('game.swf')">Main Game</button>
-      <button onclick="loadMap('map_easy.swf')">Easy Map</button>
-      <button onclick="loadMap('map_normal.swf')">Normal Map</button>
-      <button onclick="loadMap('map_hard.swf')">Hard Map</button>
-      <button onclick="loadMap('map_hell.swf')">Hell Map</button>
-      <button onclick="loadMap('map_final.swf')">Final Map</button>
-    </div>
-
     <br />
     <a class="back-link" href="index.html">&larr; Back to Main Page</a>
   </main>
@@ -106,23 +79,35 @@
       const container = document.getElementById("game");
       container.appendChild(player);
 
-      // Load the main game SWF by default
-      player.load("./games/game.swf");
+      // Load the main game SWF first
+      player.load("./games/game.swf").then(() => {
+        console.log("Main SWF loaded successfully");
+
+        // Preload the map SWFs in the background
+        const mapFiles = [
+          "map_easy.swf",
+          "map_normal.swf",
+          "map_hard.swf",
+          "map_hell.swf",
+          "map_final.swf"
+        ];
+
+        mapFiles.forEach(map => {
+          const preload = document.createElement("object");
+          preload.data = `./games/${map}`;
+          preload.type = "application/x-shockwave-flash";
+          preload.width = "1";
+          preload.height = "1";
+          preload.style = "position: absolute; left: -9999px;";
+          document.body.appendChild(preload);
+
+          console.log(`Preloading: ${map}`);
+        });
+
+      }).catch((error) => {
+        console.error("Failed to load main SWF:", error);
+      });
     });
-
-    function loadMap(map) {
-      const container = document.getElementById("game");
-      
-      // Clear the current SWF
-      container.innerHTML = "";
-
-      const ruffle = window.RufflePlayer.newest();
-      const player = ruffle.createPlayer();
-      container.appendChild(player);
-
-      // Dynamically load the selected map
-      player.load(`./games/${map}`);
-    }
   </script>
 </body>
 </html>
