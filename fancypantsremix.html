@@ -76,6 +76,14 @@
       const ruffle = window.RufflePlayer.newest();
       const player = ruffle.createPlayer();
       const container = document.getElementById("game");
+
+      // Set the player size to match the container size
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+
+      player.style.width = containerWidth + 'px';
+      player.style.height = containerHeight + 'px';
+
       container.appendChild(player);
       player.load("./games/Fancy Pants Adventure Remix.swf"); // Load Fancy Pants Remix SWF file
     });
