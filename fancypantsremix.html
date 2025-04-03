@@ -29,12 +29,19 @@
     }
 
     .game-container {
-      background-color: #000;
-      display: inline-block;
-      padding: 10px;
-      border: 2px solid #00ff00;
-      margin-top: 20px;
-    }
+    background-color: #000;
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #00ff00;
+    margin-top: 20px;
+    max-width: 100%; /* Allow it to scale */
+    max-height: 100%; /* Allow it to scale */
+  }
+
+  #game {
+    width: 100%;
+    height: 100%;
+  }
 
     footer {
       margin-top: 2rem;
