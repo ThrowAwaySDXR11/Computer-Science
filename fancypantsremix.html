@@ -66,7 +66,7 @@
   <main>
     <h2>Fancy Pants Remixed</h2>
     <div class="game-container">
-      <div id="game" style="width: 960px; height: 600px;"></div>
+      <div id="game" style="width: 800px; height: 520px;"></div>
     </div>
     <br />
     <a class="back-link" href="index.html">&larr; Back to Main Page</a>
@@ -89,11 +89,11 @@
     const containerHeight = container.offsetHeight;
 
     // Scale factor (you can adjust this value to suit your needs)
-    const scaleFactor = Math.min(containerWidth / 960, containerHeight / 600);
+    const scaleFactor = Math.min(containerWidth / 800, containerHeight / 520);
 
     // Apply the scale factor to the player size
-    player.style.width = (960 * scaleFactor) + 'px';
-    player.style.height = (600 * scaleFactor) + 'px';
+    player.style.width = (800 * scaleFactor) + 'px';
+    player.style.height = (520 * scaleFactor) + 'px';
 
     container.appendChild(player);
     player.load("./games/Fancy Pants Adventure Remix.swf");
