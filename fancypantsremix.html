@@ -72,22 +72,27 @@
   <!-- Load Ruffle -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const ruffle = window.RufflePlayer.newest();
-      const player = ruffle.createPlayer();
-      const container = document.getElementById("game");
+  window.addEventListener("DOMContentLoaded", () => {
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    const container = document.getElementById("game");
 
-      // Set the player size to match the container size
-      const containerWidth = container.offsetWidth;
-      const containerHeight = container.offsetHeight;
+    // Get the container's size and calculate a scale factor
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
 
-      player.style.width = containerWidth + 'px';
-      player.style.height = containerHeight + 'px';
+    // Scale factor (you can adjust this value to suit your needs)
+    const scaleFactor = Math.min(containerWidth / 960, containerHeight / 600);
 
-      container.appendChild(player);
-      player.load("./games/Fancy Pants Adventure Remix.swf"); // Load Fancy Pants Remix SWF file
-    });
-  </script>
+    // Apply the scale factor to the player size
+    player.style.width = (960 * scaleFactor) + 'px';
+    player.style.height = (600 * scaleFactor) + 'px';
+
+    container.appendChild(player);
+    player.load("./games/Fancy Pants Adventure Remix.swf");
+  });
+</script>
+
 
 </body>
 </html>
