@@ -6,6 +6,93 @@
   <title>Computer Science Test Site</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+<script>
+  const games = [
+    { name: "Cactus McCoy 2", url: "game.html?file=cactusmccoy2.swf" },
+    { name: "Cactus McCoy", url: "cactusmccoy.html?file=cactusmccoy_kong.swf" },
+    { name: "Fancy Pants 1", url: "fancypants1.html" },
+    { name: "Fancy Pants Remix", url: "fancypantsremix.html" },
+    { name: "Fancy Pants 2", url: "fancypants2.html" },
+    { name: "Fancy Pants 3", url: "fancypants3.html" },
+    { name: "Commando 1", url: "Commando1.html" },
+    { name: "Modded Commando 2", url: "Commando2.html" },
+    { name: "William And Sly 2", url: "WilliamSly2.html" },
+    { name: "Alien Thief", url: "alienthief.html" },
+    { name: "Flood Runner 2", url: "thefloodrunner2.html" },
+    { name: "Commando Assault", url: "CommandoAssault.html" },
+    { name: "Escaping the Prison", url: "henrystickmin2.html" },
+    { name: "Stealing the Diamond", url: "henrystickmin3.html" },
+    { name: "Infiltrating the Airship", url: "henrystickmin4.html" },
+    { name: "Fleeing the Complex", url: "henrystickmin5.html" },
+    { name: "Raft Wars", url: "raftwars.html" },
+    { name: "Raft Wars 2", url: "raftwars2.html" },
+    { name: "Papa's Wingeria", url: "wingeria.html" },
+    { name: "Papa's Freezeria", url: "freezeria.html" },
+    { name: "Age Of War", url: "ageofwar.html" },
+    { name: "Age Of War 2", url: "ageofwar2.html" },
+    { name: "BearBarians", url: "bearBarians.html" }
+  ];
+
+  function filterGames() {
+    const input = document.getElementById('searchBar').value.toLowerCase();
+    const results = document.getElementById('searchResults');
+    results.innerHTML = '';
+
+    if (input === '') return;
+
+    const filtered = games.filter(g => g.name.toLowerCase().includes(input));
+    filtered.forEach(game => {
+      const li = document.createElement('li');
+      li.textContent = game.name;
+      li.onclick = () => location.href = game.url;
+      results.appendChild(li);
+    });
+  }
+</script>
+<div id="search-container">
+  <input type="text" id="searchBar" placeholder="Search for a game..." onkeyup="filterGames()" />
+  <ul id="searchResults"></ul>
+</div>
+    
+  #search-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  #searchBar {
+    width: 70%;
+    padding: 12px;
+    font-size: 14px;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+
+  #searchResults {
+    list-style: none;
+    padding: 0;
+    margin: 10px auto;
+    width: 70%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #111;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+  }
+
+  #searchResults li {
+    padding: 12px;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    color: #FFD700;
+  }
+
+  #searchResults li:hover {
+    background-color: #333;
+  }
+
     body {
       font-family: 'Press Start 2P', cursive;
       background: linear-gradient(135deg, #4b6cb7, #182848);
@@ -22,7 +109,6 @@
       font-size: 20px;
       border-bottom: 4px solid #FFD700;
     }
-
     .modules {
       display: flex;
       flex-wrap: wrap;
