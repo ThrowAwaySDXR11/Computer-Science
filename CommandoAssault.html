@@ -70,44 +70,17 @@
   </footer>
 
   <!-- Load Ruffle -->
-  <script src="./ruffle/ruffle.js"></script>
+ <script src="./ruffle/ruffle.js"></script>
 
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const ruffle = window.RufflePlayer.newest();
-      const player = ruffle.createPlayer();
-      const container = document.getElementById("game");
-      container.appendChild(player);
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    const container = document.getElementById("game");
+    container.appendChild(player);
 
-      // Load the main game SWF first
-      player.load("./games/game.swf").then(() => {
-        console.log("Main SWF loaded successfully");
-
-        // Preload the map SWFs in the background
-        const mapFiles = [
-          "map_easy.swf",
-          "map_normal.swf",
-          "map_hard.swf",
-          "map_hell.swf",
-          "map_final.swf"
-        ];
-
-        mapFiles.forEach(map => {
-          const preload = document.createElement("object");
-          preload.data = `./games/${map}`;
-          preload.type = "application/x-shockwave-flash";
-          preload.width = "1";
-          preload.height = "1";
-          preload.style = "position: absolute; left: -9999px;";
-          document.body.appendChild(preload);
-
-          console.log(`Preloading: ${map}`);
-        });
-
-      }).catch((error) => {
-        console.error("Failed to load main SWF:", error);
-      });
-    });
-  </script>
+    player.load("./games/game.swf");
+  });
+</script>   
 </body>
 </html>
