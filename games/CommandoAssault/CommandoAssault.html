@@ -36,11 +36,6 @@
       margin-top: 20px;
     }
     
-#game object, #game canvas {
-  width: 100% !important;
-  height: 100% !important;
-}   
-    
     footer {
       margin-top: 2rem;
       padding: 1rem;
@@ -89,6 +84,8 @@
     window.addEventListener("DOMContentLoaded", () => {
       const ruffle = window.RufflePlayer.newest();
       const player = ruffle.createPlayer();
+      player.style.width = "640px";
+      player.style.height = "555px";
       const container = document.getElementById("game");
       container.appendChild(player);
       player.load("PATCH2game.swf");
