@@ -69,22 +69,26 @@
     <p>&copy; 2025 Computer Science Test Site</p>
   </footer>
 
+  <!-- Set config BEFORE Ruffle loads -->
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+      preferredRenderer: "webgl"
+    };
+  </script>
+
   <!-- Load Ruffle -->
-<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-  window.RufflePlayer = window.RufflePlayer || {};
-  window.RufflePlayer.config = {
-    preferredRenderer: "webgl"
-  };
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("game");
+      container.appendChild(player);
+      player.load("PATCH2game.swf");
+    });
+  </script>
 
-  const ruffle = window.RufflePlayer.newest();
-  const player = ruffle.createPlayer();
-  const container = document.getElementById("game");
-  container.appendChild(player);
-  player.load("PATCH2game.swf");
-});   
-</script>   
 </body>
 </html>
