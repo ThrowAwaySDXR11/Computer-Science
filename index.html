@@ -6,91 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>cool dudes site</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <script>
-  const games = [
-    { name: "Cactus McCoy 2", url: "cactusmccoy2.html?file=cactusmccoy2.swf" },
-    { name: "Cactus McCoy", url: "cactusmccoy.html?file=cactusmccoy_kong.swf" },
-    { name: "Fancy Pants 1", url: "fancypants1.html" },
-    { name: "Fancy Pants Remix", url: "fancypantsremix.html" },
-    { name: "Fancy Pants 2", url: "fancypants2.html" },
-    { name: "Fancy Pants 3", url: "fancypants3.html" },
-    { name: "Commando 1", url: "Commando1.html" },
-    { name: "Modded Commando 2", url: "Commando2.html" },
-    { name: "William And Sly 2", url: "WilliamSly2.html" },
-    { name: "Alien Thief", url: "alienthief.html" },
-    { name: "Flood Runner 2", url: "thefloodrunner2.html" },
-    { name: "Commando Assault", url: "CommandoAssault.html" },
-    { name: "Escaping the Prison", url: "henrystickmin2.html" },
-    { name: "Stealing the Diamond", url: "henrystickmin3.html" },
-    { name: "Infiltrating the Airship", url: "henrystickmin4.html" },
-    { name: "Fleeing the Complex", url: "henrystickmin5.html" },
-    { name: "Raft Wars", url: "raftwars.html" },
-    { name: "Raft Wars 2", url: "raftwars2.html" },
-    { name: "Papa's Wingeria", url: "wingeria.html" },
-    { name: "Papa's Freezeria", url: "freezeria.html" },
-    { name: "Age Of War", url: "ageofwar.html" },
-    { name: "Age Of War 2", url: "ageofwar2.html" },
-    { name: "BearBarians", url: "bearBarians.html" },
-    { name: "Papa Louie 2", url: "papalouie2.html" },
-    { name: "Papa Louie 3", url: "papalouie3.html" },
-  ];
-
-  function filterGames() {
-    const input = document.getElementById('searchBar').value.toLowerCase();
-    const results = document.getElementById('searchResults');
-    results.innerHTML = '';
-
-    if (input === '') return;
-
-    const filtered = games.filter(g => g.name.toLowerCase().includes(input));
-    filtered.forEach(game => {
-      const li = document.createElement('li');
-      li.textContent = game.name;
-      li.onclick = () => location.href = game.url;
-      results.appendChild(li);
-    });
-  }
-</script>
   <style>
-    
-  #search-container {
-    margin-top: 20px;
-    text-align: center;
-  }
+    #search-container {
+      margin-top: 20px;
+      text-align: center;
+    }
 
-  #searchBar {
-    width: 70%;
-    padding: 12px;
-    font-size: 14px;
-    font-family: 'Press Start 2P', cursive;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-  }
+    #searchBar {
+      width: 70%;
+      padding: 12px;
+      font-size: 14px;
+      font-family: 'Press Start 2P', cursive;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
 
-  #searchResults {
-    list-style: none;
-    padding: 0;
-    margin: 10px auto;
-    width: 70%;
-    max-height: 300px;
-    overflow-y: auto;
-    background-color: #111;
-    border: 2px solid #FFD700;
-    border-radius: 5px;
-  }
+    #searchResults {
+      list-style: none;
+      padding: 0;
+      margin: 10px auto;
+      width: 70%;
+      max-height: 300px;
+      overflow-y: auto;
+      background-color: #111;
+      border: 2px solid #FFD700;
+      border-radius: 5px;
+    }
 
-  #searchResults li {
-    padding: 12px;
-    text-align: left;
-    cursor: pointer;
-    border-bottom: 1px solid #333;
-    color: #FFD700;
-  }
+    #searchResults li {
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+      border-bottom: 1px solid #333;
+      color: #FFD700;
+    }
 
-  #searchResults li:hover {
-    background-color: #333;
-  }
+    #searchResults li:hover {
+      background-color: #333;
+    }
 
     body {
       font-family: 'Press Start 2P', cursive;
@@ -108,6 +62,7 @@
       font-size: 20px;
       border-bottom: 4px solid #FFD700;
     }
+
     .modules {
       display: flex;
       flex-wrap: wrap;
@@ -131,12 +86,12 @@
       box-shadow: 0 12px 20px rgba(255, 215, 0, 0.7);
     }
 
-   .module img {
-  width: auto; /* Allow image width to adjust based on the size */
-  height: 120px; /* Set a consistent height for all images */
-  max-width: 100%; /* Make sure images do not overflow */
-  object-fit: cover; /* Ensures images fill their space without distorting */
-}
+    .module img {
+      width: auto;
+      height: 120px;
+      max-width: 100%;
+      object-fit: cover;
+    }
 
     .module div {
       padding: 15px;
@@ -159,7 +114,6 @@
       background-color: #fff700;
       color: #000;
     }
-
   </style>
 </head>
 <body>
@@ -167,12 +121,12 @@
   <header>
     cool dudes site
   </header>
-  
-<div id="search-container">
-  <input type="text" id="searchBar" placeholder="Search for a chart..." onkeyup="filterGames()" />
-  <ul id="searchResults"></ul>
-</div>
-  
+
+  <div id="search-container">
+    <input type="text" id="searchBar" placeholder="Search for a chart..." onkeyup="filterGames()" />
+    <ul id="searchResults"></ul>
+  </div>
+
   <section class="modules">
 
     <div class="module">
@@ -186,193 +140,215 @@
       <div>Cactus McCoy</div>
       <a href="cactusmccoy.html?file=cactusmccoy_kong.swf">Launch</a>
     </div>
-    
-<div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-26%201.06.38%20PM.png" alt="Fancy Pants 1">
-  <div>Fancy Pants 1</div>
-  <a href="fancypants1.html">Launch</a>
-</div>
-    
- <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/fancypantsremix.png" alt="Fancy Pants Remix">
-  <div>Fancy Pants Remix</div>
-  <a href="fancypantsremix.html">Launch</a>
-</div>
 
     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/fancypantsremix.png" alt="Cutie Pants Remix">
-  <div>Cutie Pants Remix</div>
-  <a href="cutiepantsremix.html">Launch</a>
-</div>
-    
-<div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-28%2012.12.31%20AM.png" alt="Fancy Pants 2">
-  <div>Fancy Pants 2</div>
-  <a href="fancypants2.html">Launch</a>
-</div>
-
-<div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-28%2012.12.42%20AM.png" alt="Fancy Pants 3">
-  <div>Fancy Pants 3</div>
-  <a href="fancypants3.html">Launch</a>
-</div>
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-26%201.06.38%20PM.png" alt="Fancy Pants 1">
+      <div>Fancy Pants 1</div>
+      <a href="fancypants1.html">Launch</a>
+    </div>
 
     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/commando.jpeg" alt="Commando 1">
-  <div>Commando 1</div>
-  <a href="Commando1.html">Launch</a>
-</div>
-
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/commando2.jpeg" alt="Commando 2">
-  <div>Commando 2</div>
-  <a href="Commando2.html">Launch</a>
-</div>
-    
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-28%205.31.44%20PM.png" alt="William And Sly 2">
-  <div>William And Sly 2</div>
-  <a href="WilliamSly2.html">Launch</a>
-</div>
-    
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/alienthief.jpeg" alt="Alien Thief">
-  <div>Alien Thief</div>
-  <a href="alienthief.html">Launch</a>
-</div>
-    
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/floodrunner2.jpeg" alt="Flood Runner 2">
-  <div>Flood Runner 2</div>
-  <a href="thefloodrunner2.html">Launch</a>
-</div>
-    
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/commandoassault.jpeg" alt="Commando Assault">
-  <div>Commando Assault (FINALLY)</div>
-  <a href="games/CommandoAssault/CommandoAssault.html">Launch</a>
-</div>
-    
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/henrystickmin2.jpeg" alt="Escaping the Prison">
-  <div>Escaping the Prison</div>
-  <a href="henrystickmin2.html">Launch</a>
-</div>
-    
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/henrystickmin3.jpeg" alt="Stealing the Diamond">
-  <div>Stealing the Diamond</div>
-  <a href="henrystickmin3.html">Launch</a>
-</div>
-    
-       <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/toppat.png" alt="Infiltrating the Airship">
-  <div>Infiltrating the Airship</div>
-  <a href="henrystickmin4.html">Launch</a>
-</div>
-    
-       <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/fleeingthecomplex.jpeg" alt="Fleeing the Complex">
-  <div>Fleeing the Complex</div>
-  <a href="henrystickmin5.html">Launch</a>
-</div>
-
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/raftwars.jpeg" alt="Raft Wars">
-  <div>Raft Wars</div>
-  <a href="raftwars.html">Launch</a>
-</div>
-
-      <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/raftwars2.jpeg" alt="Raft Wars 2">
-  <div>Raft Wars 2</div>
-  <a href="raftwars2.html">Launch</a>
-</div>
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/fancypantsremix.png" alt="Fancy Pants Remix">
+      <div>Fancy Pants Remix</div>
+      <a href="fancypantsremix.html">Launch</a>
+    </div>
 
     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/gunball2.png" alt="Gunball 2">
-  <div>Gunball 2</div>
-  <a href="gunball2.html">Launch</a>
-</div>
-
-      <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/strikeforceheroes2.png" alt="Strike Force Heroes 2">
-  <div>Strike Force Heroes 2</div>
-  <a href="strikeforceheroes2.html">Launch</a>
-</div>
-    
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/wingeria.jpeg" alt="Wingeria">
-  <div>Papa's Wingeria</div>
-  <a href="wingeria.html">Launch</a>
-</div>
-
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/freezeria.jpeg" alt="Freezeria">
-  <div>Papa's Freezeria</div>
-  <a href="freezeria.html">Launch</a>
-</div>
-   
-    <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/papalouie2.jpg" alt="Papa Louie 2">
-  <div>Papa Louie 2</div>
-  <a href="papalouie2.html">Launch</a>
-</div>
-    
-      <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/papalouie3.png" alt="Papa Louie 3">
-  <div>Papa Louie 3</div>
-  <a href="papalouie3.html">Launch</a>
-</div>
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/fancypantsremix.png" alt="Cutie Pants Remix">
+      <div>Cutie Pants Remix</div>
+      <a href="cutiepantsremix.html">Launch</a>
+    </div>
 
     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/ducklife4.png" alt="Duck Life 4">
-  <div>Duck Life 4</div>
-  <a href="ducklife4.html">Launch</a>
-</div>
-
-      <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/ageofwar.jpeg" alt="Age Of War">
-  <div>Age Of War</div>
-  <a href="ageofwar.html">Launch</a>
-</div>
-    
-      <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/ageofwar2.jpeg" alt="Age Of War 2">
-  <div>Age Of War 2</div>
-  <a href="ageofwar2.html">Launch</a>
-</div>
-
-     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/bearbarians.jpeg" alt="bearBarians">
-  <div>BearBarians</div>
-  <a href="bearBarians.html">Launch</a>
-</div>
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-28%2012.12.31%20AM.png" alt="Fancy Pants 2">
+      <div>Fancy Pants 2</div>
+      <a href="fancypants2.html">Launch</a>
+    </div>
 
     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/projectnexus.png" alt="Madness: Project Nexus">
-  <div>Project Nexus</div>
-  <a href="ProjectNexus.html">Launch</a>
-</div>
-    
-    <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/swordn'souls.png" alt="Sword N' Souls">
-  <div>Sword N' Souls</div>
-  <a href="swordn'souls.html">Launch</a>
-</div>
-    
-    <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/sushicat2.png" alt="Sushi Cat 2">
-  <div>Sushi Cat 2 (SLOW)</div>
-  <a href="sushicat2.html">Launch</a>
-</div>
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-28%2012.12.42%20AM.png" alt="Fancy Pants 3">
+      <div>Fancy Pants 3</div>
+      <a href="fancypants3.html">Launch</a>
+    </div>
 
     <div class="module">
-  <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/othersushicat2.png" alt="Other Sushi Cat 2">
-  <div>Sushi Cat: Purrade</div>
-  <a href="sushicat2:greatpurrade.html">Launch</a>
-</div>
-  
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/commando.jpeg" alt="Commando 1">
+      <div>Commando 1</div>
+      <a href="Commando1.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/commando2.jpeg" alt="Commando 2">
+      <div>Commando 2</div>
+      <a href="Commando2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/Screenshot%202025-03-28%205.31.44%20PM.png" alt="William And Sly 2">
+      <div>William And Sly 2</div>
+      <a href="WilliamSly2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/alienthief.jpeg" alt="Alien Thief">
+      <div>Alien Thief</div>
+      <a href="alienthief.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/floodrunner2.jpeg" alt="Flood Runner 2">
+      <div>Flood Runner 2</div>
+      <a href="thefloodrunner2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/commandoassault.jpeg" alt="Commando Assault">
+      <div>Commando Assault (FINALLY)</div>
+      <a href="games/CommandoAssault/CommandoAssault.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/henrystickmin2.jpeg" alt="Escaping the Prison">
+      <div>Escaping the Prison</div>
+      <a href="henrystickmin2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/henrystickmin3.jpeg" alt="Stealing the Diamond">
+      <div>Stealing the Diamond</div>
+      <a href="henrystickmin3.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/toppat.png" alt="Infiltrating the Airship">
+      <div>Infiltrating the Airship</div>
+      <a href="henrystickmin4.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/fleeingthecomplex.jpeg" alt="Fleeing the Complex">
+      <div>Fleeing the Complex</div>
+      <a href="henrystickmin5.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/raftwars.jpeg" alt="Raft Wars">
+      <div>Raft Wars</div>
+      <a href="raftwars.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/raftwars2.jpeg" alt="Raft Wars 2">
+      <div>Raft Wars 2</div>
+      <a href="raftwars2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/gunball2.png" alt="Gunball 2">
+      <div>Gunball 2</div>
+      <a href="gunball2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/strikeforceheroes2.png" alt="Strike Force Heroes 2">
+      <div>Strike Force Heroes 2</div>
+      <a href="strikeforceheroes2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/wingeria.jpeg" alt="Wingeria">
+      <div>Papa's Wingeria</div>
+      <a href="wingeria.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/freezeria.jpeg" alt="Freezeria">
+      <div>Papa's Freezeria</div>
+      <a href="freezeria.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/papalouie2.jpg" alt="Papa Louie 2">
+      <div>Papa Louie 2</div>
+      <a href="papalouie2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/papalouie3.png" alt="Papa Louie 3">
+      <div>Papa Louie 3</div>
+      <a href="papalouie3.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/ducklife4.png" alt="Duck Life 4">
+      <div>Duck Life 4</div>
+      <a href="ducklife4.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/ageofwar.jpeg" alt="Age Of War">
+      <div>Age Of War</div>
+      <a href="ageofwar.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/ageofwar2.jpeg" alt="Age Of War 2">
+      <div>Age Of War 2</div>
+      <a href="ageofwar2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/bearbarians.jpeg" alt="bearBarians">
+      <div>BearBarians</div>
+      <a href="bearBarians.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/projectnexus.png" alt="Madness: Project Nexus">
+      <div>Project Nexus</div>
+      <a href="ProjectNexus.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/swordn'souls.png" alt="Sword N' Souls">
+      <div>Sword N' Souls</div>
+      <a href="swordn'souls.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/sushicat2.png" alt="Sushi Cat 2">
+      <div>Sushi Cat 2 (SLOW)</div>
+      <a href="sushicat2.html">Launch</a>
+    </div>
+
+    <div class="module">
+      <img src="https://raw.githubusercontent.com/ThrowAwaySDXR11/Computer-Science/main/images/othersushicat2.png" alt="Other Sushi Cat 2">
+      <div>Sushi Cat: Purrade</div>
+      <a href="sushicat2:greatpurrade.html">Launch</a>
+    </div>
+
   </section>
+
+  <script>
+    const games = [...document.querySelectorAll('.module')].map(m => ({
+      name: m.querySelector('div').textContent,
+      url: m.querySelector('a').href
+    }));
+
+    function filterGames() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const results = document.getElementById('searchResults');
+      results.innerHTML = '';
+      if (!input) return;
+
+      games.filter(g => g.name.toLowerCase().includes(input)).forEach(game => {
+        const li = document.createElement('li');
+        li.textContent = game.name;
+        li.onclick = () => location.href = game.url;
+        results.appendChild(li);
+      });
+    }
+  </script>
+
 </body>
-</html>
+</html>   
