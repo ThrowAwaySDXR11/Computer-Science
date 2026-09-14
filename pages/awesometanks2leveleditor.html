@@ -101,9 +101,10 @@
     player.style.height = (520 * scaleFactor) + 'px';
 
     container.appendChild(player);
-    player.load("https://games.flashmuseum.net/f5826554-517d-4aee-9d4c-ff19a0d2d3a1.swf");   
-      config: { renderer: "software" }
-  });
+   player.load({
+    url: ".././games/awesome-tanks-2-leveleditor.swf",
+    base: "http://bigdino.com/games/"
+});   
 </script>   
 
 
