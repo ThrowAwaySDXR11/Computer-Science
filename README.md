@@ -1,2 +1,2 @@
-# Computer-Science
-This is an ongoing charts project for Computer Science PART 2.
+# Flash Game Portal
+This is something I made in school when I was bored. Just adding cool flash games to it.
