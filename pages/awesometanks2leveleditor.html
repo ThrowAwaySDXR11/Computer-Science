@@ -77,28 +77,33 @@
   </footer>
 
   <!-- Load Ruffle -->
-<script src="https://unpkg.com/@ruffle-rs/ruffle@nightly"></script>   
+<script src="https://unpkg.com/@ruffle-rs/ruffle@nightly"></script>
+<script>
+  window.RufflePlayer.config = {
+      "allowScriptAccess": "always",
+      "autoplay": "auto",
+      "allowNetworking": "all",
+      "favorFlash": true,
+      "maxExecutionDuration": 15
+  };
+</script>
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     const ruffle = window.RufflePlayer.newest();
     const player = ruffle.createPlayer();
     const container = document.getElementById("game");
 
-    // Get the container's size and calculate a scale factor
     const containerWidth = container.offsetWidth;
     const containerHeight = container.offsetHeight;
-
-    // Scale factor (you can adjust this value to suit your needs)
     const scaleFactor = Math.min(containerWidth / 800, containerHeight / 520);
 
-    // Apply the scale factor to the player size
     player.style.width = (800 * scaleFactor) + 'px';
     player.style.height = (520 * scaleFactor) + 'px';
 
     container.appendChild(player);
     player.load(".././games/awesome-tanks-2-leveleditor.swf");
   });
-</script>
+</script>   
 
 
 </body>
