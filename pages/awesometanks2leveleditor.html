@@ -76,17 +76,15 @@
     <p>&copy; Flash Game Portal: CDS </p>
   </footer>
 
+   <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+      preferredRenderer: "wgpu-webgl"
+    };
+  </script>
   <!-- Load Ruffle -->
 <script src="https://unpkg.com/@ruffle-rs/ruffle@0.4.1"></script>   
-<script>
-  window.RufflePlayer.config = {
-      "allowScriptAccess": "always",
-      "autoplay": "auto",
-      "allowNetworking": "all",
-      "favorFlash": true,
-      "maxExecutionDuration": 15
-  };
-</script>
+
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     const ruffle = window.RufflePlayer.newest();
