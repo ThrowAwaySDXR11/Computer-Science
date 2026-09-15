@@ -76,15 +76,18 @@
     <p>&copy; Flash Game Portal: CDS </p>
   </footer>
 
-   <script>
+  <script>
     window.RufflePlayer = window.RufflePlayer || {};
     window.RufflePlayer.config = {
-      preferredRenderer: "wgpu-webgl"
+        preferredRenderer: "wgpu-webgl",
+        "allowScriptAccess": "always",
+        "autoplay": "auto",
+        "allowNetworking": "all",
+        "favorFlash": true,
+        "maxExecutionDuration": 15
     };
-  </script>
-  <!-- Load Ruffle -->
-<script src="https://unpkg.com/@ruffle-rs/ruffle@0.4.1"></script>   
-
+</script>
+<script src="https://unpkg.com/@ruffle-rs/ruffle@0.4.1"></script>
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     const ruffle = window.RufflePlayer.newest();
@@ -99,13 +102,12 @@
     player.style.height = (520 * scaleFactor) + 'px';
 
     container.appendChild(player);
-   player.load({
-    url: ".././games/awesome-tanks-2-leveleditor.swf",
-    base: "http://bigdino.com/games/"
-   });
-});   
+    player.load({
+        url: ".././games/awesome-tanks-2-leveleditor.swf",
+        base: "http://bigdino.com/games/"
+    });
+});
 </script>   
-
 
 </body>
 </html>
